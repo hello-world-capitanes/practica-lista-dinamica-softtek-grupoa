@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import ListaDinamica from './ListaDinamica/ListaDinamica';
+import ListaDinamica from './components/ListaDinamica/ListaDinamica';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
