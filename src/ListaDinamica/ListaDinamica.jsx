@@ -1,5 +1,7 @@
 import {useState} from "react";
 import { useListaDinamica } from "./useListaDinamica";
+import DetalleModal from "../components/modal";
+import { useModal } from "../hooks/useModal";
 
 function ListaDinamica({datosIniciales}) {
     
