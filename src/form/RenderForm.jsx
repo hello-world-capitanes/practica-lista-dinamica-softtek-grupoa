@@ -24,6 +24,7 @@ function RenderForm({handleSubmit}) {
                         label={selector.label}
                         values={selector.values}
                     />
+                    <input type="submit" value="Crear entrada" />
                 </form> 
             </div>
         </div>
