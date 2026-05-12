@@ -8,15 +8,15 @@ export function useListaDinamica(datosIniciales) {
         setLista(lista.filter((item) => item.id !== id));
     };
 
-    const anadir = (texto = "Nueva entrada") => {
-        const nuevo = { 
-            id: Date.now(), 
-            titulo: texto,
-            contenido: "Contenido por defecto",
-            tema: "General"
-        };
-        setLista([...lista, nuevo]);
+    const anadir = (nuevoItem) => {
+    const nuevo = { 
+        id: Date.now(), 
+        titulo: nuevoItem.titulo || "Sin título",
+        contenido: nuevoItem.contenido || "Sin contenido",
+        tema: nuevoItem.tema || "General"
     };
+    setLista([...lista, nuevo]);
+};
 
     const mover = (index, direccion) => {
         const nuevaPosicion = direccion === "arriba" ? index -1 : index + 1;

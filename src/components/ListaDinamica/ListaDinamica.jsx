@@ -1,17 +1,36 @@
 import {useState} from "react";
-import { useListaDinamica } from "./useListaDinamica";
-import DetalleModal from "../components/modal";
-import { useModal } from "../hooks/useModal";
+import { useListaDinamica } from "../../hooks/useListaDinamica";
+import DetalleModal from "../modal";
+import { useModal } from "../../hooks/useModal";
+import RenderForm from "../form/RenderForm";
+
 
 function ListaDinamica({datosIniciales}) {
     
     const{lista, eliminar, anadir, mover} = useListaDinamica(datosIniciales);
     const {visible, data, abrir, cerrar} = useModal();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const nuevoDato = {
+            titulo: formData.get("titulo"),
+            contenido: formData.get("contenido"),
+            tema: formData.get("tema")
+        };
+
+        anadir(nuevoDato);
+        e.target.reset();
+    } 
+
     return (
         <div className="container mt-4">
-        <h2>Mi Super Lista Dinamica</h2>
-        <button className="btn btn-primary mb-3" onClick={() => anadir("Nuevo")}>Añadir</button>
+        <h2>Nuestra Super Lista y Formulario Dinamicos</h2>
+        <div className="mb-5">
+                <h4>Formulario</h4>
+                <RenderForm handleSubmit={handleSubmit} />
+            </div>
 
         <ul className="list-group">
             {lista.map((item, index) => (
