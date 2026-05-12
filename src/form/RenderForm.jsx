@@ -24,7 +24,10 @@ function RenderForm({handleSubmit}) {
                         label={selector.label}
                         values={selector.values}
                     />
-                    <input type="submit" value="Crear entrada" />
+                    <div className="mb-3 d-flex">
+                        <input className="btn btn-info ms-auto" type="submit" value="Crear entrada" />
+                    </div>
+                    
                 </form> 
             </div>
         </div>
